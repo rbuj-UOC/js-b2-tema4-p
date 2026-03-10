@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <script type="module">
-            import { ReqRes } from './u3e2.js';
 
-            const api = new ReqRes();
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-            await api.login('eve.holt@reqres.in', 'pistol')
-                .then((response) => {
-                    console.log('api.login', response);
-                    api.onLogin(data)
-                })
-                .catch((error) => api.onLogin(error));
+<body>
+  <script type="module">
+    import { ReqRes } from './u3e2.js';
 
-            await api.updateFullUser(7, 'test@test.com', 'John', ' Ram')
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => error);
+    const api = new ReqRes();
 
-            await api.updateFullUser(7, 'test@test.com', 'John', ' Ram', 'https://reqres.in/img/faces/7-image.jpg')
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => error);
+    await api.login('eve.holt@reqres.in', 'pistol')
+      .then((response) => {
+        console.log('api.login', response);
+        api.onLogin(data)
+      })
+      .catch((error) => api.onLogin(error));
 
-            await api.updateUserName(7)
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => error);
+    await api.updateFullUser(7, 'test@test.com', 'John', ' Ram')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => error);
 
-            await api.updateUserName(7, 'Mark', 'Anders')
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => error);
+    await api.updateFullUser(7, 'test@test.com', 'John', ' Ram', 'https://reqres.in/img/faces/7-image.jpg')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => error);
 
-            await api.deleteUser(-3)
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => error);
+    await api.updateUserName(7)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => error);
 
-            await api.deleteUser(7)
-                .then((response) => {
-                    console.log(response);
-                })
-                .catch((error) => error);
-        </script>
-    </body>
+    await api.updateUserName(7, 'Mark', 'Anders')
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => error);
+
+    await api.deleteUser(-3)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => error);
+
+    await api.deleteUser(7)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => error);
+  </script>
+</body>
+
 </html>

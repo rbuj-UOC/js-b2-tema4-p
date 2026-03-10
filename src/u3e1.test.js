@@ -7,29 +7,23 @@ import { ReqRes } from '../u3/u3e1.js';
 fetchMock.enableMocks();
 
 describe('Fetch API PUT and PATCH', () => {
-    const api = new ReqRes();
+  const api = new ReqRes();
 
-    beforeEach(() => {
-        fetchMock.resetMocks();
-    });
+  beforeEach(() => {
+    fetchMock.resetMocks();
+  });
 
-    test('Registration missing fields...', async () => {
-        let response = await api.register();
+  test('Registration missing fields...', async () => {
+    let response = await api.register();
 
-        expect(fetchMock.mock.calls.length).toEqual(0);
-        expect(response.error).toBeDefined();
-        expect(response.error).toMatch(
-            'Missing email'
-        );
+    expect(fetchMock.mock.calls.length).toEqual(0);
+    expect(response.error).toBeDefined();
+    expect(response.error).toMatch('Missing email');
 
-        response = await api.register('test@test.com');
+    response = await api.register('test@test.com');
 
-        expect(fetchMock.mock.calls.length).toEqual(0);
-        expect(response.error).toBeDefined();
-        expect(response.error).toMatch(
-            'Missing password'
-        );
-    });
-
-
+    expect(fetchMock.mock.calls.length).toEqual(0);
+    expect(response.error).toBeDefined();
+    expect(response.error).toMatch('Missing password');
+  });
 });
